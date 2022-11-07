@@ -8,6 +8,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Posts />,
+    loader: () => {
+      usePostsStore.setState({ activeAuthorId: null });
+    },
   },
   {
     path: "/author/:id",
