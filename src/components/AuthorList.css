@@ -1,0 +1,50 @@
+
+.authorList {
+  position: sticky;
+  top: 0;
+  width: 300px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  max-height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.authorList::-webkit-scrollbar {
+  display: none;
+}
+
+.authorListSearch {
+  position: sticky;
+  top: 0;
+}
+
+.authorListItem {
+  background-color: aqua;
+  color: black;
+  padding: 1rem;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.authorListItem:hover {
+  background-color: aliceblue;
+}
+
+.authorListItem.active {
+  background-color: blueviolet;
+}
+
+.authorListItemName {
+  font-weight: bold;
+}
