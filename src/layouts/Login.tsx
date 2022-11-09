@@ -7,6 +7,7 @@ const api = useApi();
 
 export default function Login() {
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function Login() {
     if (name && email) {
       setError("");
       try {
+        setLoading(true);
         await api.registerUser({
           name,
           email,
@@ -27,6 +29,8 @@ export default function Login() {
         if (error instanceof Error) {
           setError(error.message);
         }
+      } finally {
+        setLoading(false);
       }
     }
   }
@@ -40,7 +44,7 @@ export default function Login() {
         <div>
           <Input ref={emailRef} type="email" placeholder="Email" required />
         </div>
-        <button>Go</button>
+        <button disabled={loading}>Go</button>
         {error && <div className="error">Error: {error}</div>}
       </form>
     </div>
